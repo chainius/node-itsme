@@ -1,0 +1,37 @@
+{
+  "name": "itsme",
+  "version": "1.0.0",
+  "description": "Unofficial ItsMe library",
+  "main": "itsme.js",
+  "scripts": {
+    "start": "node example.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Skyhark-Projects/node-itsme.git"
+  },
+  "author": "Vandamme Sacha <sacha@skyhark.be> (https://www.skyhark.be)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Skyhark-Projects/node-itsme/issues"
+  },
+  "homepage": "https://github.com/Skyhark-Projects/node-itsme",
+  "keywords": [
+    "itsme",
+    "openid",
+    "oauth",
+    "id",
+    "identity",
+    "belgium"
+  ],
+  "dependencies": {
+    "bn.js": "^4.11.8",
+    "jws-jwk": "^0.1.4",
+    "jwt-bearer-client-auth": "^0.4.0",
+    "node-forge": "^0.7.5",
+    "node-jose": "^1.0.0",
+    "openid-client": "^2.1.0",
+    "request": "^2.87.0",
+    "request-promise-native": "^1.0.5"
+  }
+}
