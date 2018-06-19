@@ -20,7 +20,7 @@ async function main() {
 
     //-----
 
-    const authUrl = await itsme.authUrl('openid profile address phone service:BIT4YOU_LOGIN');
+    const authUrl = await itsme.authUrl('openid profile address phone service:PROJECT_LOGIN');
 
     console.log('Please sign in on the following url:')
     console.log(authUrl);
