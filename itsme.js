@@ -108,6 +108,10 @@ class Itsme {
 
     async authUrl(scope, redirect_uri) {
         const client = await this.getClient();
+        
+        if(typeof(scope) === 'object' && !redirect_uri) {
+            return client.authorizationUrl(scope);
+        }
 
         return client.authorizationUrl({
             redirect_uri: redirect_uri || this.options.auth_redirect,
