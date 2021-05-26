@@ -13,16 +13,16 @@ class JWT {
 
     setPayload(payload) {
         payload = payload.split(".");
-        const protect = (new Buffer(payload[0], "base64")).toString("utf8");
+        const protect = Buffer.from(payload[0], "base64").toString("utf8");
         
         if(payload.length !== 5)
             throw('Wrong token provided')
 
         this.headers        = JSON.parse(protect);
-        this.encrypted_key  = new Buffer(payload[1], "base64");
-        this.iv             = new Buffer(payload[2], "base64");
-        this.ciphertext     = new Buffer(payload[3], "base64");
-        this.tag            = new Buffer(payload[4], "base64");
+        this.encrypted_key  = Buffer.from(payload[1], "base64");
+        this.iv             = Buffer.from(payload[2], "base64");
+        this.ciphertext     = Buffer.from(payload[3], "base64");
+        this.tag            = Buffer.from(payload[4], "base64");
     }
 
     loadPem(path) {
@@ -40,6 +40,7 @@ class JWT {
     }
     
     setIssuerKey(key) {
+        // console.log("test", key)
         this.issuerKey = key;
     }
 
@@ -52,7 +53,7 @@ class JWT {
         });
 
         // https://tools.ietf.org/html/rfc7516#appendix-A.4.2
-        const buff = new Buffer(key, 'binary');
+        const buff = Buffer.from(key, 'binary');
         return {
             mac: buff.slice(0, 16),
             aes: buff.slice(16, 32)
@@ -73,11 +74,14 @@ class JWT {
     parse(shouldVerify = true) {
         const decrypted = this.decrypt();
         let results = decrypted.split(".");
+
         var result = {
-            header: JSON.parse(forge.util.decode64(results[0]).split('\u0000').join('')),
-            payload: JSON.parse(forge.util.decode64(results[1]).split('\u0000').join('')),
+            header: JSON.parse(Buffer.from(results[0], 'base64')),
+            payload: JSON.parse(Buffer.from(results[1], 'base64')),
             signature: results[2],
         };
+
+        console.log(result)
 
         if(!shouldVerify)
             return result;

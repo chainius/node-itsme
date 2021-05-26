@@ -44,11 +44,11 @@ class Itsme {
             this.keystore = keystore;
         })
 
-        this.keys = keys.map((key) => Object.assign(key, { key: JWT.parseJwk(key) }));
+        this.keys = keys.map((key) => Object.assign(key, { key: JWT.parseJwk(key) }));
     }
 
     getKey(search) {
-        search = search || {};
+        search = search || {};
         const keystore = this.keys || [];
         for(var key of keystore) {
             var found = true;
@@ -207,7 +207,7 @@ class Itsme {
         const key = (this.getKey({
             kty: 'RSA',
             use: 'enc'
-        }) || {}).key;
+        }) || {}).key;
 
         if(!key)
             throw('Encryption key not found');
@@ -219,7 +219,7 @@ class Itsme {
         const issuerKey = this.issuerKeys.find((o) => o.use === 'sig');
 
         if(issuerKey)
-            jwt.setIssuerKey(this.issuerKeys.find((o) => o.use === 'sig'));
+            jwt.setIssuerKey(issuerKey);
 
         return jwt.parse();
     }
@@ -270,7 +270,7 @@ class Itsme {
         const info = await this.userinfoRaw(accessToken);
         const jwt = new JWT(info);
         const userinfo = this.__parseJwt(jwt).payload;
-        
+
         if(userinfo.address) {
             try {
                 userinfo.address = JSON.parse(userinfo.address);
