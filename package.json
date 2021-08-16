@@ -26,12 +26,14 @@
   ],
   "dependencies": {
     "bn.js": "^4.11.8",
-    "jws-jwk": "^0.1.4",
+    "debug": "^4.3.2",
     "jwt-bearer-client-auth": "^0.4.0",
-    "node-forge": "^0.7.5",
-    "node-jose": "^1.0.0",
-    "openid-client": "^2.1.0",
-    "request": "^2.87.0",
-    "request-promise-native": "^1.0.5"
+    "node-forge": "^0.10.0",
+    "node-jose": "^2.0.0",
+    "node-jws": "^0.1.4",
+    "openid-client": "^4.7.4",
+    "request": "^2.88.2",
+    "request-promise-native": "^1.0.5",
+    "superagent": "^6.1.0"
   }
 }
