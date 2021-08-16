@@ -1,6 +1,6 @@
 const crypto = require('crypto');
 const forge  = require('node-forge');
-const jws    = require('jws-jwk');
+const jws    = require('node-jws');
 
 const { parseJwk, jwkBase64Regenerate } = require('./key.js');
 
