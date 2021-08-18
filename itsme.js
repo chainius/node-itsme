@@ -41,7 +41,7 @@ class Itsme {
         const keystore = keys.map((key) => Object.assign(key, JWT.jwkBase64Regenerate(key)))
         this.keystore = jose.JWK.asKeyStore(keystore);
         this.keystore.then((keystore) => {
-            this.keystore = keystore;
+            this.keystore = keystore.toJSON(true);
         })
 
         this.keys = keys.map((key) => Object.assign(key, { key: JWT.parseJwk(key) }));
