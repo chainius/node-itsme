@@ -1,6 +1,6 @@
 {
   "name": "itsme",
-  "version": "1.1.6",
+  "version": "1.1.8",
   "description": "Unofficial ItsMe library",
   "main": "itsme.js",
   "scripts": {
