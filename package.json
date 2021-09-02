@@ -1,6 +1,6 @@
 {
   "name": "itsme",
-  "version": "1.1.5",
+  "version": "1.1.6",
   "description": "Unofficial ItsMe library",
   "main": "itsme.js",
   "scripts": {
@@ -25,15 +25,15 @@
     "belgium"
   ],
   "dependencies": {
-    "bn.js": "^4.11.8",
-    "debug": "^4.3.2",
-    "jws": "^4.0.0",
-    "jwt-bearer-client-auth": "^0.4.0",
-    "node-forge": "^0.10.0",
-    "node-jose": "^2.0.0",
-    "openid-client": "^4.7.4",
-    "request": "^2.88.2",
-    "request-promise-native": "^1.0.5",
-    "superagent": "^6.1.0"
+    "bn.js": "4.11.8",
+    "debug": "4.3.2",
+    "jws": "4.0.0",
+    "jwt-bearer-client-auth": "0.4.0",
+    "node-forge": "0.10.0",
+    "node-jose": "2.0.0",
+    "openid-client": "4.7.5",
+    "request": "2.88.2",
+    "request-promise-native": "1.0.5",
+    "superagent": "6.1.0"
   }
 }

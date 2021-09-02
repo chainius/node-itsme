@@ -6,22 +6,27 @@ const rl = readline.createInterface({
     output: process.stdout
 });
 
-function ask(question) {
+function ask(question, env, file) {
+    if(process.env[env])
+        return process.env[env]
+    if(file && require('fs').existsSync(file))
+        return file
+
     return new Promise(function(resolve) {
         rl.question(question, resolve);      
     })
 }
 
 async function main() {
-    const client_id     = await ask('Client id: ');
-    const auth_redirect = await ask('Redirect url: ');
+    const client_id     = await ask('Client id: ', 'CLIENT_ID');
+    const auth_redirect = await ask('Redirect url: ', 'REDIRECT_URL');
 
     const itsme = new ItsMe({
         client_id,
         auth_redirect
     });
 
-    const keysPath = await ask('Keys file: ');
+    const keysPath = await ask('Keys file: ', 'KEY_FILE', './keys.json');
     const keys = require(keysPath);
     itsme.setKeys(keys);
 
