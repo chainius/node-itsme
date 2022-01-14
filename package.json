@@ -29,7 +29,7 @@
     "debug": "4.3.2",
     "jws": "4.0.0",
     "jwt-bearer-client-auth": "0.4.0",
-    "node-forge": "0.10.0",
+    "node-forge": "1.0.0",
     "node-jose": "2.0.0",
     "openid-client": "4.7.5",
     "request": "2.88.2",
